@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Showcase from '$components/Showcase.svelte';
+	import Hero from '$components/Hero.svelte';
+	import { fade } from 'svelte/transition';
+</script>
+
+<section in:fade>
+	<Hero />
+	<Showcase />
+</section>
