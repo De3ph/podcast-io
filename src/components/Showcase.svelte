@@ -5,7 +5,7 @@
 	const gridDescCol = 'flex justify-center items-center text-center';
 </script>
 
-<Box class=" w-2/3 mx-auto mb-15">
+<Box class="w-full sm:w-2/3 md:w-3/5 lg:w-1/2 mx-auto mb-15">
 	<Grid
 		class="font-serif font-medium md:text-2xl lg:text-4xl
         "
