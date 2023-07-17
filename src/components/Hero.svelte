@@ -5,7 +5,7 @@
 
 <Container fluid class="font-serif font-medium text-center mb-20">
 	<Center>
-		<Stack align="center" class="gap-14">
+		<Stack align="center" class="space-y-14">
 			<p class="text-5xl font-semibold max-w-[25ch]">
 				Tune In: Exploring Infinite Stories through Soundscapes
 			</p>
