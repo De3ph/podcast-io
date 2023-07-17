@@ -19,8 +19,8 @@
 	$: borderColor = $colorScheme === 'light' ? 'border-t-neutral-200' : 'border-t-neutral-700';
 </script>
 
-<section class={`mt-5 border-t py-12 px-36 ${borderColor}`}>
-	<SimpleGrid {cols} spacing="xs">
+<section class={`mt-5 border-t py-12 px-24 ${borderColor}`}>
+	<SimpleGrid {cols} spacing="sm">
 		<FooterCol items={col1Items} />
 		<FooterCol items={col2Items} />
 	</SimpleGrid>
