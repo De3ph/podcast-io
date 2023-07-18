@@ -36,7 +36,7 @@
 	];
 </script>
 
-<Box px="lg" class="bg-dots bg-cover">
+<Box px="lg">
 	<Accordion variant="filled" class="space-y-3">
 		{#each props as prop}
 			<AccordionItem {...prop} />
