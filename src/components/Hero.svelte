@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button, Center, Container,  Stack } from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
+
 </script>
 
 <Container fluid class="font-serif font-medium text-center mb-20">
@@ -14,10 +15,12 @@
 				and Mind-Expanding Ideas.
 			</p>
 
-			<Button ripple size="lg" color="dark" class="shadow-md">
-				Explore
-				<ArrowRight size={20} slot="rightIcon" />
-			</Button>
+			<a href="/explore">
+				<Button ripple size="lg" color="dark" class="group shadow-md">
+					Explore
+					<ArrowRight size={20} slot="rightIcon" />
+				</Button>
+			</a>
 		</Stack>
 	</Center>
 </Container>
