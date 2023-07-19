@@ -1,6 +1,12 @@
 <script lang="ts">
+	import {goto} from "$app/navigation"
 	import { Button, Center, Container,  Stack } from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
+
+	const handleClick = () => { 
+		// navigate explorer page
+		goto("/explore")
+	 }
 
 </script>
 
@@ -15,12 +21,10 @@
 				and Mind-Expanding Ideas.
 			</p>
 
-			<a href="/explore">
-				<Button ripple size="lg" color="dark" class="group shadow-md">
+				<Button on:click={handleClick} ripple size="lg" color="dark" class="group shadow-md">
 					Explore
 					<ArrowRight size={20} slot="rightIcon" />
 				</Button>
-			</a>
 		</Stack>
 	</Center>
 </Container>
