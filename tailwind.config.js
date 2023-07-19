@@ -2,11 +2,7 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {
-			backgroundImage: {
-				dots: "url('/Dot.svg')"
-			}
-		}
+		extend: {}
 	},
 	plugins: []
 };
