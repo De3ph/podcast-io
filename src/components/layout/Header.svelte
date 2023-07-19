@@ -1,6 +1,7 @@
 <script>
 	import { Container, Flex, Title, Group } from '@svelteuidev/core';
 	import ThemeToggle from '$components/layout/components/header/ThemeToggle.svelte';
+	import AuthButton from '$components/auth/AuthButton.svelte';
 </script>
 
 <Container fluid class="p-8">
@@ -9,7 +10,8 @@
 			<Title order={1} class="hover:text-slate-600">Podcast.io</Title>
 		</a>
 		<Group>
-			<ThemeToggle />
+			<AuthButton type="Login" />
+			<ThemeToggle /> 
 		</Group>
 	</Flex>
 </Container>
