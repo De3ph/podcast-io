@@ -15,5 +15,6 @@ interface IPodcast {
 	id: number;
 	name: string;
 	author: string;
-	categories: string[];
+	createdAt: Date;
+	coverName: string; // name of the cover image
 }
