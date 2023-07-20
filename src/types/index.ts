@@ -18,3 +18,8 @@ interface IPodcast {
 	createdAt: Date;
 	coverName: string; // name of the cover image
 }
+
+interface ILoginError {
+	isInvalid: boolean;
+	message: null | string;
+}
