@@ -10,6 +10,6 @@
 	});
 </script>
 
-<section data-aos="fade-in">
+<section data-aos="fade-in" class="h-full">
 	<slot />
 </section>
