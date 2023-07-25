@@ -1,10 +1,10 @@
 <script lang="ts">
 	import PodcastCard from '$components/explore/PodcastCard.svelte';
-	import { Center, SimpleGrid, Title } from '@svelteuidev/core';
+	import { Center, SimpleGrid, Title, colorScheme } from '@svelteuidev/core';
 	import type { PageData } from './$types';
+	import { twJoin } from 'tailwind-merge';
 
 	export let data: PageData;
-
 	const { podcasts } = data;
 </script>
 
@@ -12,16 +12,19 @@
 	<Center>
 		<p class="text-3xl">
 			Explore the <span
-				class="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-slate-400 to-slate-800"
+				class={twJoin(
+					"font-semibold bg-clip-text text-transparent bg-gradient-to-r",
+					$colorScheme === "dark" ? "from-slate-400 to-slate-800" : "from-slate-800 to-slate-400"
+				)}
 				>World</span
 			> of podcasts
 		</p>
 	</Center>
 
 	<SimpleGrid
-		class="px-6 sm:px-8 md:px-12 xl:px-24 gap-x-12 gap-y-16"
+		class="px-6 sm:px-8 md:px-12 xl:px-24 gap-16"
 		breakpoints={[
-			{ minWidth: 1536, cols: 5 },
+			{ minWidth: 1536, cols: 4 },
 			{ minWidth: 1023, cols: 3 },
 			{ minWidth: 767, cols: 2 },
 			{ minWidth: 639, cols: 1 }
