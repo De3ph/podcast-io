@@ -5,11 +5,19 @@
 
 <Box class="w-full sm:w-2/3 md:w-3/5 lg:w-1/2 mx-auto mb-15">
 	<Grid
-		class="font-serif font-medium md:text-2xl lg:text-4xl space-y-7
+		class="font-serif font-medium md:text-2xl lg:text-4xl space-y-20
         "
 	>
 		<ScItem img="/podcast_grid_1.jpg" text="Lorem ipsum dolor sit amet consectetur." />
 
-		<ScItem reverse={true} img="/podcast_grid_2.jpg" text="Lorem ipsum dolor sit amet consectetur." />
+		<ScItem reverse={true} isVertical img="/podcast_grid_2.jpg" text="Lorem ipsum dolor sit amet consectetur." />
+
+		<ScItem img="/podcast_grid_1.jpg" text="Lorem ipsum dolor sit amet consectetur." />
+
+		<ScItem reverse img="/podcast_grid_1.jpg" text="Lorem ipsum dolor sit amet consectetur." />
+		
+		<ScItem img="/podcast_grid_1.jpg" text="Lorem ipsum dolor sit amet consectetur." />
+		
+		<ScItem reverse isVertical img="/podcast_grid_2.jpg" text="Lorem ipsum dolor sit amet consectetur." />
 	</Grid>
 </Box>
