@@ -3,6 +3,7 @@
 	import { supabase } from '$lib/supabaseClient';
 	import { Button, Stack, TextInput, Container } from '@svelteuidev/core';
 	import loginSchema from '../../../schemas/LoginSchema';
+	import AuthButton from '$components/auth/AuthButton.svelte';
 	let email: string;
 	let password: string;
 
@@ -39,7 +40,7 @@
 				bind:value={password}
 			/>
 
-			<Button color="dark" on:click={handleClick}>Login</Button>
+			<AuthButton type="Login" on:click={handleClick} />
 		</Stack>
 	</Container>
 </FadeIn>

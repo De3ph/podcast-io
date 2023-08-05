@@ -6,8 +6,10 @@
     const gridDescCol = 'flex justify-center items-center text-center';
 </script>
 
-<Grid.Col span={4} class={gridDescCol}>
+<Grid.Col span={4} >
     <FadeIn>
-        <p>{text}</p>
+        <p
+        class="flex justify-center items-center text-center h-full leading-relaxed"
+        >{text}</p>
     </FadeIn>
 </Grid.Col>
