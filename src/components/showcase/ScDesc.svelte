@@ -7,9 +7,7 @@
 </script>
 
 <Grid.Col span={4} >
-    <FadeIn>
         <p
         class="flex justify-center items-center text-center h-full leading-relaxed"
         >{text}</p>
-    </FadeIn>
 </Grid.Col>

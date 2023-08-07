@@ -10,11 +10,11 @@
 
 <main class="space-y-16">
 	<Center>
-		<p class="text-3xl">
+		<p class="text-4xl">
 			Explore the <span
 				class={twJoin(
-					"font-semibold bg-clip-text text-transparent bg-gradient-to-r",
-					$colorScheme === "dark" ? "from-slate-400 to-slate-800" : "from-slate-800 to-slate-400"
+					"font-bold bg-clip-text text-transparent bg-gradient-to-r",
+					$colorScheme === "dark" ? "from-slate-400 to-slate-800" : "from-slate-800 to-slate-500"
 				)}
 				>World</span
 			> of podcasts
@@ -22,7 +22,7 @@
 	</Center>
 
 	<SimpleGrid
-		class="px-6 sm:px-8 md:px-12 xl:px-24 gap-16"
+		class="px-6 sm:px-8 md:px-12 xl:px-24 gap-8"
 		breakpoints={[
 			{ minWidth: 1536, cols: 4 },
 			{ minWidth: 1023, cols: 3 },

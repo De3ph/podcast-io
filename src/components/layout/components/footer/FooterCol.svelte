@@ -7,7 +7,7 @@
     <Stack align="center">
     {#each items as item (item.url)}
             <Anchor href={item.url} color="dimmed">
-                {item.name}
+                <span class="text-lg">{item.name}</span>
             </Anchor>
         {/each}
     </Stack>
