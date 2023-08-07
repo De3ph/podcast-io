@@ -36,3 +36,12 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## .env
+
+You must create .env file in your root folder. .env file should include these keys:
+
+```
+VITE_PUBLIC_SUPABASE_URL
+VITE_PUBLIC_SUPABASE_API_KEY
+```
