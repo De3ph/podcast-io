@@ -13,7 +13,7 @@
 {#if reverse}
 	<FadeIn>
 		<Flex>
-			<ScDesc {text} />
+			<ScDesc {text} textRight={false} />
 			<ScImage {img} {isVertical} />
 		</Flex>
 	</FadeIn>
@@ -21,7 +21,7 @@
 	<FadeIn>
 		<Flex>
 			<ScImage {img} {isVertical} />
-			<ScDesc {text} />
+			<ScDesc {text} textRight={true} />
 		</Flex>
 	</FadeIn>
 {/if}

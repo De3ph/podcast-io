@@ -24,4 +24,5 @@ const getPodcast = async (
 	return { podcast, error };
 };
 
+
 export { supabase, getPodcast };

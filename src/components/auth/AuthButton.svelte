@@ -1,17 +1,16 @@
 <script lang="ts">
-	import { Button, colorScheme, type ButtonVariant } from '@svelteuidev/core';
+	import { Button } from '@svelteuidev/core';
 
 	export let type: 'Login' | 'Logout';
-
-	$: variant = $colorScheme === 'dark' ? 'white' : 'filled' as ButtonVariant;
+	
 </script>
 
 {#if type === 'Login'}
-	<Button color="dark" {variant} on:click>
-		{type}
+	<Button color="dark" on:click>
+		Login
 	</Button>
 {:else}
-	<Button color="dark">
-		{type}
+	<Button color="dark" on:click>
+		Logout
 	</Button>
 {/if}

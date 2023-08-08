@@ -10,7 +10,7 @@
 
 </script>
 
-<Container fluid class="font-serif font-medium text-center mb-20">
+<Container fluid class="font-serif font-medium text-center my-48">
 	<Center>
 		<Stack align="center" class="space-y-14">
 			<p class="text-5xl font-semibold max-w-[25ch]">

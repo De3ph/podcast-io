@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { SimpleGrid, colorScheme } from '@svelteuidev/core';
 	import FooterCol from '$components/layout/components/footer/FooterCol.svelte';
+	import { twJoin } from 'tailwind-merge';
 
 	const cols = 2;
 
@@ -19,7 +20,7 @@
 	$: borderColor = $colorScheme === 'light' ? 'border-t-neutral-200' : 'border-t-neutral-700';
 </script>
 
-<section class={`mt-8 border-t py-12 px-20 md:px-24 ${borderColor}`}>
+<section class={twJoin("mt-12 border-t py-12 px-20 md:px-24",borderColor)}>
 	<SimpleGrid {cols}>
 		<FooterCol items={col1Items} />
 		<FooterCol items={col2Items} />
