@@ -11,7 +11,7 @@ interface IAccordionItemProps {
 	desc: string;
 }
 
-interface IPodcast {
+export interface IPodcast {
 	id: number;
 	name: string;
 	author: string;

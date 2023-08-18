@@ -1,5 +1,5 @@
 <script>
-	import { Container, Flex, Title, Group } from '@svelteuidev/core';
+	import { Container, Flex, Title, Group, Button } from '@svelteuidev/core';
 	import ThemeToggle from '$components/layout/components/header/ThemeToggle.svelte';
 	import AuthButton from '$components/auth/AuthButton.svelte';
 	import { goto } from '$app/navigation';
@@ -12,8 +12,14 @@
 
 	$: isUserLoggedIn = $sessionStore?.user !== undefined ? true : false;
 
+	$: dashboardRoute = `/dashboard/${$sessionStore?.user.email}`;
+
 	const redirectToLoginPage = () => {
 		goto('/login');
+	};
+
+	const redirectToDashboard = () => {
+		goto(dashboardRoute);
 	};
 
 	const logout = async () => {
@@ -38,6 +44,11 @@
 				type={isUserLoggedIn ? 'Logout' : 'Login'}
 				on:click={isUserLoggedIn ? logout : redirectToLoginPage}
 			/>
+			{#if isUserLoggedIn}
+			<Button on:click={redirectToDashboard} ripple color="dark" class="group shadow-md">
+				Dashboard
+			</Button>
+			{/if}
 			<ThemeToggle />
 		</Group>
 	</Flex>

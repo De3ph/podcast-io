@@ -1,10 +1,23 @@
-import moment from 'moment';
+import { supabase } from '$lib/supabaseClient';
 import { sessionStore } from '$stores/sessionStore';
 
 export const load = async () => {
-	sessionStore.subscribe((session) => {
-		// TODO : fetch users favourite podcasts
+	const favs = [];
 
-		console.log('🚀 ~ file: +page.ts:20 ~ sessionStore.subscribe ~ session:', session);
-	});
+	let { data, error } = await supabase.from('favourites').select(`
+  podcast_id,
+  podcasts (
+	*
+  )
+`);
+
+	if (!error) {
+		data?.forEach((row) => { 
+			favs.push(row?.podcasts)
+		 })
+	}
+
+	return {
+		favs
+	};
 };

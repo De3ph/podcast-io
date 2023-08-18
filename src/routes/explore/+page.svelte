@@ -8,9 +8,9 @@
 	const { podcasts } = data;
 </script>
 
-<main class="space-y-16">
+<main>
 	<Center>
-		<p class="text-4xl">
+		<p class="text-3xl my-16 md:my-20 md:text-4xl lg:text-5xl lg:my-20">
 			Explore the <span
 				class={twJoin(
 					"font-bold bg-clip-text text-transparent bg-gradient-to-r",

@@ -7,6 +7,7 @@
 	import {Stack, TextInput, Container } from '@svelteuidev/core';
 	import AuthButton from '$components/auth/AuthButton.svelte';
 	import { tick } from "svelte";
+	
 	let email: string;
 	let password: string;
 
@@ -35,7 +36,7 @@
 </script>
 
 <FadeIn>
-	<Container size="sm">
+	<Container size="sm" class="min-h-screen">
 		<Stack>
 			<TextInput placeholder="johndoe@gmail.com" label="Email" required bind:value={email} />
 
