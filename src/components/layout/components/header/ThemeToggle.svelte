@@ -8,7 +8,7 @@
 </script>
 
 <section>
-	<ActionIcon variant="transparent" on:click={toggleTheme}>
+	<ActionIcon variant="transparent" on:click={toggleTheme} name="theme_toggle">
 		{#if $colorScheme === 'light'}
 			<Moon {size} color="black" />
 		{:else}
