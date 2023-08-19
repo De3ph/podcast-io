@@ -6,6 +6,6 @@
 
 <Grid.Col span={8}>
         <AspectRatio ratio={isVertical ? 3/4 : 16 / 9}>
-            <Image src={img} fit="cover" />
+            <Image src={img} fit="cover" loading="lazy" />
         </AspectRatio>
 </Grid.Col>
