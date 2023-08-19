@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PodcastCard from '$components/explore/PodcastCard.svelte';
-	import { Center, SimpleGrid, Title, colorScheme } from '@svelteuidev/core';
+	import { Center, SimpleGrid, colorScheme } from '@svelteuidev/core';
 	import type { PageData } from './$types';
 	import { twJoin } from 'tailwind-merge';
 

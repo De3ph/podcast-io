@@ -1,40 +1,28 @@
 <script lang="ts">
-	import { sessionStore } from '$stores/sessionStore';
+	import { user } from '$stores/sessionStore';
 	import { colorScheme } from '@svelteuidev/core';
 	import { twJoin } from 'tailwind-merge';
 	import FadeIn from '$components/wrappers/FadeIn.svelte';
 	import { Card, Group, Image, Stack, Text, Title, ActionIcon } from '@svelteuidev/core';
 	import { Star, StarFilled } from 'radix-icons-svelte';
-	import { supabase } from '$lib/supabaseClient';
+	import { supabase, removeFavourite, addToFavourites } from '$lib/supabaseClient';
 	import type { IPodcast } from '../../types';
 
 	export let podcast: IPodcast;
 	export let isFavorite: boolean = false;
 
-	const removeFavourite = async () => {
-		const { error } = await supabase
-			.from('favourites')
-			.delete()
-			.match({ podcast_id: podcast.id, user_id: $sessionStore?.user.id });
-
-		isFavorite = false;
+	const handleClickFilledStart = async () => {
+		const { error } = await removeFavourite(podcast.id, $user?.id as string);
+		if (!error) {
+			isFavorite = false;
+		}
 	};
 
-	const addToFavourites = async () => {
-		const { data } = await supabase
-			.from('favourites')
-			.select()
-			.match({ podcast_id: podcast.id, user_id: $sessionStore?.user.id });
-
-		if (data?.length > 0) {
-			return;
+	const handleClickStart = async () => {
+		const res = await addToFavourites(podcast.id, $user?.id as string);
+		if (!res) {
+			isFavorite = true;
 		}
-
-		const { error } = await supabase.from('favourites').insert({
-			podcast_id: podcast.id,
-			user_id: $sessionStore?.user.id
-		});
-		isFavorite = true;
 	};
 
 	const href = `/podcast/${podcast.id}`;
@@ -64,15 +52,15 @@
 			<Stack class="px-1 pt-2">
 				<Title order={2}>{podcast.name}</Title>
 
-				<Group class="px-4" position={$sessionStore?.access_token ? 'apart' : 'right'}>
-					{#if $sessionStore?.access_token}
+				<Group class="px-4" position={$user ? 'apart' : 'right'}>
+					{#if $user}
 						<ActionIcon color="yellow" variant="transparent">
 							{#if isFavorite}
-								<button on:click={removeFavourite}>
+								<button on:click={handleClickFilledStart}>
 									<StarFilled size={18} />
 								</button>
 							{:else}
-								<button on:click={addToFavourites}>
+								<button on:click={handleClickStart}>
 									<Star size={18} />
 								</button>
 							{/if}

@@ -24,5 +24,37 @@ const getPodcast = async (
 	return { podcast, error };
 };
 
+const isPodcastInFavourites = async (podcast_id:number, user_id: string ) => { 
+	const { data } = await supabase
+		.from('favourites')
+		.select()
+		.match({ podcast_id: podcast_id, user_id: user_id });
 
-export { supabase, getPodcast };
+	return data?.length !== 0
+ }
+
+const removeFavourite = async (podcast_id: number, user_id: string) => {
+	const { error } = await supabase
+		.from('favourites')
+		.delete()
+		.match({ podcast_id: podcast_id, user_id: user_id });
+
+	return { error };
+};
+
+const addToFavourites = async (podcast_id:number,user_id:string) => {
+	const isAlreadyExist = await isPodcastInFavourites(podcast_id,user_id)
+
+	if (isAlreadyExist) {
+		return
+	}
+
+	const { error } = await supabase.from('favourites').insert({
+		podcast_id: podcast_id,
+		user_id: user_id
+	});
+
+	return error
+};
+
+export { supabase, getPodcast, removeFavourite, addToFavourites };

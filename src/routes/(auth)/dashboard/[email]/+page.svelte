@@ -1,16 +1,15 @@
 <script lang="ts">
 	import type { PageData } from '../$types';
-	import { sessionStore } from '$stores/sessionStore';
+	import { isUserLoggedIn, user } from '$stores/sessionStore';
 	import { Flex, SimpleGrid, Title } from '@svelteuidev/core';
 	import PodcastCard from '$components/explore/PodcastCard.svelte';
 
 	export let data: PageData;
 	const favs: [] = data?.favs;
 
-	const user = $sessionStore?.user;
 </script>
 
-{#if $sessionStore?.user === undefined}
+{#if !$isUserLoggedIn}
 	<div>Your session has expired. Please login again.</div>
 {:else}
 	<!-- User access granted -->
@@ -20,7 +19,7 @@
 			<Flex gap="lg">
 				<Title order={2}>
 					<span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-700"
-						>{user?.email}'s
+						>{$user?.email}'s
 					</span>
 					Dashboard</Title
 				>
