@@ -22,23 +22,14 @@
 	</Center>
 
 	<SimpleGrid
-		class="px-6 sm:px-8 md:px-12 xl:px-24 gap-8"
+		class="px-8 sm:px-16 md:px-16 xl:px-24"
 		breakpoints={[
-			{ minWidth: 1536, cols: 4 },
-			{ minWidth: 1023, cols: 3 },
-			{ minWidth: 767, cols: 2 },
-			{ minWidth: 639, cols: 1 }
+			{ minWidth: 1023, cols: 3, spacing: 52 },
+			{ minWidth: 767, cols: 2 , spacing: 40},
+			{ minWidth: 639, cols: 1}
 		]}
 	>
 		{#each podcasts as podcast}
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
 				<PodcastCard {podcast} />
 				<PodcastCard {podcast} />
 				<PodcastCard {podcast} />
