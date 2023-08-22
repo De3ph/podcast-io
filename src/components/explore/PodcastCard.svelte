@@ -3,27 +3,37 @@
 	import { colorScheme } from '@svelteuidev/core';
 	import { twJoin } from 'tailwind-merge';
 	import FadeIn from '$components/wrappers/FadeIn.svelte';
-	import { Card, Group, Image, Stack, Text, Title, ActionIcon } from '@svelteuidev/core';
+	import { Card, Group, Image, Stack, ActionIcon } from '@svelteuidev/core';
 	import { Star, StarFilled } from 'radix-icons-svelte';
-	import { supabase, removeFavourite, addToFavourites } from '$lib/supabaseClient';
+	import { removeFavourite, addToFavourites, isPodcastInFavourites } from '$lib/supabaseClient';
 	import type { IPodcast } from '../../types';
+	import { onMount } from 'svelte';
 
 	export let podcast: IPodcast;
-	export let isFavorite: boolean = false;
+	let isFavorite: boolean = false;
 
-	const handleClickFilledStart = async () => {
+	const checkIsFav = async () => {
+		if (!$user) return;
+		
+		const isInFavourite = await isPodcastInFavourites(podcast.id, $user?.id as string);
+		isFavorite = isInFavourite;
+	};
+
+	const handleClickFilledStar = async () => {
 		const { error } = await removeFavourite(podcast.id, $user?.id as string);
 		if (!error) {
 			isFavorite = false;
 		}
 	};
 
-	const handleClickStart = async () => {
+	const handleClickStar = async () => {
 		const res = await addToFavourites(podcast.id, $user?.id as string);
 		if (!res) {
 			isFavorite = true;
 		}
 	};
+
+	onMount(checkIsFav);
 
 	const href = `/podcast/${podcast.id}`;
 </script>
@@ -49,28 +59,33 @@
 					/>
 				</a>
 			</Card.Section>
-			<Stack class="px-1 pt-2">
-				<Title order={2}>{podcast.name}</Title>
 
-				<Group class="px-4" position={$user ? 'apart' : 'right'}>
-					{#if $user}
-						<ActionIcon color="yellow" variant="transparent">
-							{#if isFavorite}
-								<button on:click={handleClickFilledStart}>
-									<StarFilled size={18} />
-								</button>
-							{:else}
-								<button on:click={handleClickStart}>
-									<Star size={18} />
-								</button>
-							{/if}
-						</ActionIcon>
-					{/if}
-					<Text>
-						{podcast.author}
-					</Text>
-				</Group>
-			</Stack>
+			<Card.Section>
+				<Stack>
+					<div class="py-3 pl-2">
+						<p class="text-lg font-medium line-clamp-1">{podcast.name}</p>
+					</div>
+
+					<Group position={$user ? 'apart' : 'right'} class="pb-4 pr-3">
+						{#if $user}
+							<ActionIcon color="yellow" variant="transparent">
+								{#if isFavorite}
+									<button on:click={handleClickFilledStar}>
+										<StarFilled size={18} />
+									</button>
+								{:else}
+									<button on:click={handleClickStar}>
+										<Star size={18} />
+									</button>
+								{/if}
+							</ActionIcon>
+						{/if}
+						<p class="line-clamp-1 text-right">
+							{podcast.author}
+						</p>
+					</Group>
+				</Stack>
+			</Card.Section>
 		</Card>
 	</FadeIn>
 </div>

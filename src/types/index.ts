@@ -17,6 +17,7 @@ export interface IPodcast {
 	author: string;
 	createdAt: Date;
 	coverName: string; // name of the cover image
+	timesStarred: number;
 }
 
 interface ILoginError {

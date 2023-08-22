@@ -42,7 +42,7 @@
 						<div>You have no favorite podcasts :/</div>
 					{:else}
 						{#each favs as fav}
-							<PodcastCard podcast={fav} isFavorite={true} />
+							<PodcastCard podcast={fav} />
 						{/each}
 					{/if}
 				</SimpleGrid>

@@ -8,7 +8,7 @@
 <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
 	<main>
 		<Header />
-		<main class="px-8">
+		<main class="px-8 transition-colors">
 				<slot />
 		</main>
 		<Footer />

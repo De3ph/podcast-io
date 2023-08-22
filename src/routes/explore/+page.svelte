@@ -31,9 +31,6 @@
 	>
 		{#each podcasts as podcast}
 				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
-				<PodcastCard {podcast} />
 		{/each}
 	</SimpleGrid>
 </main>
