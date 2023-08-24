@@ -6,11 +6,11 @@
 </script>
 
 <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
-	<main>
-		<Header />
-		<main class="px-8 transition-colors">
-				<slot />
+	<main class="min-h-screen flex flex-col">
+		<header ><Header /></header>
+		<main class="grow px-8 transition-colors">
+			<slot />
 		</main>
-		<Footer />
+		<footer><Footer /></footer>
 	</main>
 </SvelteUIProvider>
