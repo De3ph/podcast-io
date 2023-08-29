@@ -36,20 +36,18 @@
 	};
 </script>
 
-<Container size="md" class="flex flex-col">
-	<FadeIn>
-		<Stack >
-			<TextInput placeholder="johndoe@gmail.com" label="Email" required bind:value={email} />
-
-			<TextInput
-				type="password"
-				placeholder="********"
-				label="Password"
-				required
-				bind:value={password}
-			/>
-
-			<AuthButton type="Login" on:click={handleClick} />
-		</Stack>
-	</FadeIn>
-</Container>
+<Stack
+class="mt-8 md:mx-auto md:w-3/5 xl:w-2/5"
+>
+	<TextInput placeholder="johndoe@gmail.com" label="Email" required bind:value={email} />
+	<TextInput
+		type="password"
+		placeholder="********"
+		label="Password"
+		required
+		bind:value={password}
+	/>
+	<div class="mx-auto mt-3">
+		<AuthButton type="Login" on:click={handleClick} />
+	</div>
+</Stack>

@@ -8,7 +8,7 @@
 <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
 	<main class="min-h-screen flex flex-col">
 		<header ><Header /></header>
-		<main class="grow px-8 transition-colors">
+		<main class="flex flex-col grow px-8 transition-colors">
 			<slot />
 		</main>
 		<footer><Footer /></footer>
