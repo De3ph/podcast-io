@@ -7,7 +7,7 @@
 	import { sessionStore, resetStore } from '$stores/sessionStore';
 	import { tick } from 'svelte';
 
-	// eğer user undefiend ise => not logged in 
+	// eğer user undefiend ise => not logged in
 	// eğer user varsa => logged in
 
 	$: isUserLoggedIn = $sessionStore?.user !== undefined ? true : false;
@@ -24,9 +24,9 @@
 
 	const logout = async () => {
 		const { error } = await supabase.auth.signOut();
-		if(error){
+		if (error) {
 			console.log(error);
-		}else{
+		} else {
 			resetStore();
 			await tick();
 			goto('/');
@@ -37,7 +37,7 @@
 <Container fluid class="p-8">
 	<Flex justify="space-between">
 		<a href="/" class="no-underline hover:no-underline">
-			<Title order={1} class="hover:text-slate-600">Podcast.io</Title>
+			<Title order={1} class="font-serif hover:text-slate-600">Podcast.io</Title>
 		</a>
 		<Group>
 			<AuthButton
@@ -45,9 +45,9 @@
 				on:click={isUserLoggedIn ? logout : redirectToLoginPage}
 			/>
 			{#if isUserLoggedIn}
-			<Button on:click={redirectToDashboard} ripple color="dark" class="group shadow-md">
-				Dashboard
-			</Button>
+				<Button on:click={redirectToDashboard} ripple color="dark" class="group shadow-md">
+					Dashboard
+				</Button>
 			{/if}
 			<ThemeToggle />
 		</Group>
