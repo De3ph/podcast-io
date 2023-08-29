@@ -4,9 +4,10 @@
 	import { sessionStore } from '$stores/sessionStore';
 	import loginSchema from '../../../schemas/LoginSchema';
 	import FadeIn from '$components/wrappers/FadeIn.svelte';
-	import { Stack, TextInput, Container } from '@svelteuidev/core';
+	import { ActionIcon, Stack, TextInput } from '@svelteuidev/core';
 	import AuthButton from '$components/auth/AuthButton.svelte';
 	import { tick } from 'svelte';
+	import { EnvelopeClosed, EyeOpen, EyeNone } from 'radix-icons-svelte';
 
 	let email: string;
 	let password: string;
@@ -34,20 +35,46 @@
 			alert(zodResult.error);
 		}
 	};
+	let isPasswordShouldBeVisible = false;
+	$: passwordInputType = isPasswordShouldBeVisible ? 'text' : 'password';
+
+	const handleActionClick = () => {
+		isPasswordShouldBeVisible = !isPasswordShouldBeVisible;
+		console.log(
+			'🚀 ~ file: +page.svelte:43 ~ handleActionClick ~ isPasswordShouldBeVisible:',
+			isPasswordShouldBeVisible
+		);
+	};
 </script>
 
-<Stack
-class="mt-8 md:mx-auto md:w-3/5 xl:w-2/5"
->
-	<TextInput placeholder="johndoe@gmail.com" label="Email" required bind:value={email} />
-	<TextInput
-		type="password"
-		placeholder="********"
-		label="Password"
-		required
-		bind:value={password}
-	/>
-	<div class="mx-auto mt-3">
-		<AuthButton type="Login" on:click={handleClick} />
-	</div>
-</Stack>
+<FadeIn>
+	<Stack class="mt-8 md:mx-auto md:w-3/5 xl:w-2/5">
+		<TextInput
+			placeholder="johndoe@gmail.com"
+			label="Email"
+			icon={EnvelopeClosed}
+			required
+			bind:value={email}
+		/>
+		<TextInput
+			type={passwordInputType}
+			placeholder="********"
+			label="Password"
+			required
+			bind:value={password}
+		>
+			<svelte:fragment slot="rightSection">
+				<ActionIcon variant="transparent" class="group" on:click={handleActionClick}>
+					{#if isPasswordShouldBeVisible}
+						<EyeNone class="text-black group-hover:text-slate-600" />
+					{:else}
+						<EyeOpen class="text-black group-hover:text-slate-600" />
+					{/if}
+				</ActionIcon>
+			</svelte:fragment>
+		</TextInput>
+		<div class="mx-auto mt-3">
+			<AuthButton type="Login" on:click={handleClick} />
+		</div>
+	</Stack>
+</FadeIn>

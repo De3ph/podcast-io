@@ -6,7 +6,7 @@
 	import { supabase } from '$lib/supabaseClient';
 	import { sessionStore, resetStore } from '$stores/sessionStore';
 	import { tick } from 'svelte';
-
+	import {Dashboard} from "radix-icons-svelte"
 	// eğer user undefiend ise => not logged in
 	// eğer user varsa => logged in
 
@@ -46,6 +46,7 @@
 			/>
 			{#if isUserLoggedIn}
 				<Button on:click={redirectToDashboard} ripple color="dark" class="group shadow-md">
+					<Dashboard slot="leftIcon" class="text-white group-hover:text-slate-600" />
 					Dashboard
 				</Button>
 			{/if}
