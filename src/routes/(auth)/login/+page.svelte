@@ -7,7 +7,7 @@
 	import { ActionIcon, Stack, TextInput } from '@svelteuidev/core';
 	import AuthButton from '$components/auth/AuthButton.svelte';
 	import { tick } from 'svelte';
-	import { EnvelopeClosed, EyeOpen, EyeNone } from 'radix-icons-svelte';
+	import { EnvelopeClosed, EyeOpen, EyeNone, LockClosed } from 'radix-icons-svelte';
 
 	let email: string;
 	let password: string;
@@ -55,11 +55,15 @@
 			icon={EnvelopeClosed}
 			required
 			bind:value={email}
-		/>
+		>
+	
+	</TextInput>
+		<!-- TODO - Add Forgot Password -->
 		<TextInput
 			type={passwordInputType}
 			placeholder="********"
 			label="Password"
+			icon={LockClosed}
 			required
 			bind:value={password}
 		>

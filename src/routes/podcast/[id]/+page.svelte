@@ -17,11 +17,10 @@
 	{:else if !podcast}
 		<Center>
 			<Stack align="center">
-					<h1 class="text-3xl text-center">No podcast :/</h1>
-					<Button size="lg" color="dark" on:click={() => location.reload()}>Reload</Button>
+				<h1 class="text-3xl text-center">No podcast :/</h1>
+				<Button size="lg" color="dark" on:click={() => location.reload()}>Reload</Button>
 			</Stack>
 		</Center>
-	{:else}
-		<h1>{podcast?.name}</h1>
 	{/if}
+	<h1>{podcast?.name}</h1>
 </main>
