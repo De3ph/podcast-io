@@ -1,6 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 import type { PostgrestError } from '@supabase/supabase-js';
 import type { IPodcast } from '../types';
+import { sessionStore } from '$stores/sessionStore';
+import { tick } from 'svelte';
+import { goto } from '$app/navigation';
 
 const supabase = createClient(
 	import.meta.env.VITE_PUBLIC_SUPABASE_URL,
@@ -14,6 +17,28 @@ const supabase = createClient(
 		}
 	}
 );
+
+const handleLogin = async (email: string, password: string) => {
+	const {
+		data: { session },
+		error
+	} = await supabase.auth.signInWithPassword({
+		email,
+		password
+	});
+
+	if (error) {
+		return error;
+	}
+
+	if (session?.access_token) {
+		sessionStore.set(session);
+		await tick();
+		goto(`/dashboard/${session.user.email}`);
+	}
+
+	return null;
+};
 
 const getPodcast = async (
 	id: number
@@ -81,4 +106,11 @@ const addToFavourites = async (podcast_id: number, user_id: string) => {
 	return error;
 };
 
-export { supabase, getPodcast, removeFavourite, addToFavourites, isPodcastInFavourites };
+export {
+	supabase,
+	handleLogin,
+	getPodcast,
+	removeFavourite,
+	addToFavourites,
+	isPodcastInFavourites
+};
