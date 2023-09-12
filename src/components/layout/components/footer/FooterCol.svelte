@@ -4,11 +4,11 @@
 </script>
 
 <Box>
-    <Stack align="center">
-    {#each items as item (item.url)}
-            <Anchor href={item.url} color="dimmed">
-                <span class="text-lg">{item.name}</span>
-            </Anchor>
-        {/each}
-    </Stack>
+	<Stack align="center">
+		{#each items as item (item.url)}
+			<span class="no-underline text-lg text-neutral-100 hover:text-neutral-300">
+                <a href={item.url}>{item.name}</a>
+            </span>
+		{/each}
+	</Stack>
 </Box>
