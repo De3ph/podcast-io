@@ -14,7 +14,7 @@
 		email: [],
 		password: []
 	};
-	let loginError;
+	let loginError: string;
 
 	let isPasswordShouldBeVisible = false;
 	$: passwordInputType = isPasswordShouldBeVisible ? 'text' : 'password';

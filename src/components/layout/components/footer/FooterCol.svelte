@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Box, Stack, Anchor } from '@svelteuidev/core';
+	import { Box, Stack } from '@svelteuidev/core';
 	export let items: IFooterLink[];
 </script>
 
