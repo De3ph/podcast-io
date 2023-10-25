@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Flex, SimpleGrid, colorScheme } from '@svelteuidev/core';
+	import { SimpleGrid, colorScheme } from '@svelteuidev/core';
 	import FooterCol from '$components/layout/components/footer/FooterCol.svelte';
 	import { twJoin } from 'tailwind-merge';
-
+	import type { IFooterLink } from '../../types';
 	const cols = 2;
 
 	const col1Items: IFooterLink[] = [
@@ -34,7 +34,7 @@
 	</div>
 	<div class="flex justify-center items-end">
 		<span class="text-neutral-100 text-lg"
-			>© 2023 developed by <a class="transition-all duration-500 bg-gradient-to-r from-orange-400 to-indigo-400 text-transparent bg-clip-text hover:from-indigo-400 hover:to-orange-400" href="https://github.com/De3ph">De3ph</a>
+			>© 2023 developed by <a class="transition-all duration-500 bg-gradient-to-r from-orange-400 to-indigo-400 text-transparent bg-clip-text hover:from-indigo-400 hover:to-orange-400 font-semibold" href="https://github.com/De3ph">De3ph</a>
 		</span>
 	</div>
 </section>

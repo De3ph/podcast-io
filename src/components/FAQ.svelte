@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Accordion, Box } from '@svelteuidev/core';
 	import AccordionItem from './faq/AccordionItem.svelte';
+	import type { IAccordionItemProps } from '../types';
 
 	const props: IAccordionItemProps[] = [
 		{

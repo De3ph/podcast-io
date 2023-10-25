@@ -1,7 +1,18 @@
 <script lang="js">
+	import { animate, inView } from 'motion';
 	import { Grid, Box } from '@svelteuidev/core';
 	import ScItem from './showcase/ScItem.svelte';
-	
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		inView('.sc-item', (el) => {
+			animate(
+				el.target,
+				{ x: [-40, -20, 0] },
+				{ delay: 0.2, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+			);
+		});
+	});
 </script>
 
 <Box class="w-full mx-auto sm:w-2/3 md:w-3/5 lg:w-1/2 mb-15">

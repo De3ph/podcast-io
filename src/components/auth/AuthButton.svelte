@@ -3,18 +3,16 @@
 	import { Enter, Exit } from 'radix-icons-svelte';
 
 	export let type: 'Login' | 'Logout';
-	
 </script>
 
 {#if type === 'Login'}
-	<Button color="dark" on:click class="group" >
-		<Enter slot="leftIcon" class="text-white group-hover:text-slate-600" />
+	<Button color="dark" on:click class="group">
 		Login
+		<Enter slot="rightIcon" class="text-white group-hover:text-slate-600" />
 	</Button>
 {:else}
 	<Button color="dark" on:click class="group">
-		
-		<Exit slot="leftIcon" class="text-white group-hover:text-slate-600" />
 		Logout
+		<Exit slot="rightIcon" class="text-white group-hover:text-slate-600" />
 	</Button>
 {/if}

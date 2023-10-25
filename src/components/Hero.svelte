@@ -6,8 +6,8 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		const rellax = new Rellax('.rellax', {
-			speed: 1,
+		new Rellax('.rellax', {
+			speed: 2,
 			center: false,
 			wrapper: null,
 			round: true,
@@ -25,7 +25,7 @@
 <Container fluid class="font-serif font-medium text-center my-48">
 	<Center>
 		<Stack align="center" class="space-y-14">
-			<p class="rellax text-5xl font-semibold max-w-[25ch]" data-rellax-speed="4">
+			<p class="rellax text-5xl font-semibold max-w-[25ch]">
 				Tune In: Exploring Infinite Stories through Soundscapes
 			</p>
 			<p class="rellax text-3xl max-w-[65ch]">
@@ -33,7 +33,7 @@
 				and Mind-Expanding Ideas.
 			</p>
 
-			<Button on:click={handleClick} ripple size="lg" color="dark" class="group shadow-md">
+			<Button on:click={handleClick} ripple size="lg" color="dark" class="rellax group shadow-md">
 				Explore
 				<ArrowRight size={20} slot="rightIcon" />
 			</Button>

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-interface IFooterLink {
+export interface IFooterLink {
 	name: string;
 	url: string;
 }
 
-interface IAccordionItemProps {
+export interface IAccordionItemProps {
 	value: string;
 	title: string;
 	desc: string;
@@ -20,7 +20,13 @@ export interface IPodcast {
 	timesStarred: number;
 }
 
-interface ILoginError {
+export interface ILoginError {
 	isInvalid: boolean;
 	message: null | string;
 }
+
+export interface PodcastPlan {
+	name: string;
+	price: string;
+	advantages: string[];
+  };
