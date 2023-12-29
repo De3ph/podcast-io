@@ -45,3 +45,7 @@ You must create .env file in your root folder. .env file should include these ke
 VITE_PUBLIC_SUPABASE_URL
 VITE_PUBLIC_SUPABASE_API_KEY
 ```
+
+## Example Account
+email : admin@admin.com
+password : admin
